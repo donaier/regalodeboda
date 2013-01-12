@@ -1,0 +1,10 @@
+%h2 Geschenkliste
+
+= link_to '+ Hinzufügen', new_regalo_path
+
+%ul.regalo-list
+  - @regalos.each do |regalo|
+    %li
+      %h3= regalo.name
+      = link_to 'Link', regalo.link, :class => 'regalo-link'
+      = link_to 'Löschen', regalo_path(regalo), :method => :delete, :confirm => 'Sicher?', :class => 'delete-link'

@@ -1,0 +1,10 @@
+%h2 Schenken:
+
+%p= @regalo.name + ' schenken?'
+
+= form_for @regalo do |f|
+  
+  Namen eintragen:  
+  = f.text_field :donor
+
+  = f.submit 'Schenken!'
