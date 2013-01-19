@@ -1,0 +1,9 @@
+%h2 Anmeldungen
+
+%ul.candidato-list
+  - @candidatos.each do |candidato|
+    %li
+      %h3= candidato.name
+      %p.person-count= "Personen: #{candidato.number_of_persons}"
+      %p.candidato-text= candidato.text
+      = link_to 'Löschen', candidato_path(candidato), :method => :delete, :confirm => 'Sicher?', :class => 'delete-link'

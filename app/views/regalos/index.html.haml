@@ -4,5 +4,5 @@
   - @regalos.each do |regalo|
     %li
       %h3= regalo.name
-      = link_to 'Link', /^http/.match(regalo.link) ? regalo.link : "http://#{regalo.link}", :target => '_blank', :class => 'regalo-link'
+      = link_to 'Link', regalo.link, :target => '_blank', :class => 'regalo-link'
       = link_to 'Schenken', edit_regalo_path(regalo), :class => 'edit-link'

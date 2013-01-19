@@ -3,7 +3,7 @@ class RegalosController < ApplicationController
   respond_to :html
 
   def index
-    @regalos = Regalo.all
+    @regalos = Regalo.available
   end
 
   def admin_index

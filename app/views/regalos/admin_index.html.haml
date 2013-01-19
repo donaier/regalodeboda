@@ -6,5 +6,6 @@
   - @regalos.each do |regalo|
     %li
       %h3= regalo.name
+      %p.availability= regalo.available? ? 'verfügbar' : 'verschenkt'
       = link_to 'Link', regalo.link, :class => 'regalo-link'
       = link_to 'Löschen', regalo_path(regalo), :method => :delete, :confirm => 'Sicher?', :class => 'delete-link'

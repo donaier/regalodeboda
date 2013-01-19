@@ -1,0 +1,13 @@
+%h2 Anmeldung
+
+= form_for @candidato do |f|
+
+  Wer?: 
+  = f.text_field :name
+  Personenanzahl:
+  = f.select :number_of_persons, (1..10)
+  Bemerkung:  
+  = f.text_area :text
+
+
+  = f.submit "Erstellen"
