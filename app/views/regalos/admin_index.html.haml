@@ -1,11 +1,21 @@
-%h2 Geschenkliste
+.links.admin-zone
+  "ADMIN ZONE"
+.links
+  = link_to 'Geschenkliste', regalo_admin_path
+  \|
+  = link_to 'Anmeldungen', candidatos_path
 
-= link_to '+ Hinzufügen', new_regalo_path
+.text
+  %h3 Geschenkliste
+  %br
+  = link_to '+ Hinzufügen', new_regalo_path
 
-%ul.regalo-list
-  - @regalos.each do |regalo|
-    %li
-      %h3= regalo.name
-      %p.availability= regalo.available? ? 'verfügbar' : 'verschenkt'
-      = link_to 'Link', regalo.link, :class => 'regalo-link'
-      = link_to 'Löschen', regalo_path(regalo), :method => :delete, :confirm => 'Sicher?', :class => 'delete-link'
+  %ul.regalo-list
+    - @regalos.each do |regalo|
+      %li
+        %h3= regalo.name
+        .list-links
+          = link_to 'Link', regalo.link, :class => 'regalo-link'
+          = link_to 'Löschen', regalo_path(regalo), :method => :delete, :confirm => 'Sicher?', :class => 'gift-link'
+          %p.availability.gift-link{ :class => regalo.available? ? 'green' : 'red' }= regalo.available? ? '(verfügbar)' : '(verschenkt)'
+        .clearfix

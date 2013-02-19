@@ -17,7 +17,7 @@ class RegalosController < ApplicationController
   def create
     @regalo = Regalo.new(params[:regalo])
     @regalo.save
-    respond_with @regalo, :location => wirsinds_path
+    respond_with @regalo, :location => regalo_admin_path
   end
 
   def edit
@@ -33,6 +33,6 @@ class RegalosController < ApplicationController
   def destroy
     @regalo = Regalo.find(params[:id])
     @regalo.delete
-    respond_with @regalo, :location => wirsinds_path
+    respond_with @regalo, :location => regalo_admin_path
   end
 end

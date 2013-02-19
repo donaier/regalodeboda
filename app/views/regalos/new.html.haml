@@ -1,10 +1,22 @@
-%h2 Geschenke erfassen
+.links.admin-zone
+  "ADMIN ZONE"
+.links
+  = link_to 'Geschenkliste', regalo_admin_path
+  \|
+  = link_to 'Anmeldungen', candidatos_path
 
-= form_for @regalo do |f|
+.text
+  %h3 Geschenke erfassen
 
-  Titel: 
-  = f.text_field :name
-  Link:  
-  = f.text_field :link
+  = form_for @regalo do |f|
+    %table
+      %thead
+      %tbody
+        %tr
+          %td.left Titel:
+          %td= f.text_field :name
+        %tr
+          %td.left Link:
+          %td= f.text_field :link
 
-  = f.submit "Erstellen"
+    = f.submit "Erstellen"

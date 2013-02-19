@@ -1,13 +1,23 @@
-%h2 Anmeldung
+.links
+  = link_to 'Zurück', root_path
+  \|
+  = link_to 'Geschenkliste', regalos_path
+.text
+  %h3 Anmeldung
 
-= form_for @candidato do |f|
+  = form_for @candidato do |f|
 
-  Wer?: 
-  = f.text_field :name
-  Personenanzahl:
-  = f.select :number_of_persons, (1..10)
-  Bemerkung:  
-  = f.text_area :text
+    %table
+      %thead
+      %tbody
+        %tr
+          %td.left Wer?:
+          %td= f.text_field :name
+        %tr
+          %td.left Personenanzahl:
+          %td= f.select :number_of_persons, (1..10)
+        %tr
+          %td.left Bemerkung:
+          %td= f.text_area :text
 
-
-  = f.submit "Erstellen"
+    = f.submit "Erstellen"

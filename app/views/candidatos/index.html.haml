@@ -1,9 +1,20 @@
-%h2 Anmeldungen
+.links.admin-zone
+  "ADMIN ZONE"
+.links
+  = link_to 'Geschenkliste', regalo_admin_path
+  \|
+  = link_to 'Anmeldungen', candidatos_path
 
-%ul.candidato-list
-  - @candidatos.each do |candidato|
-    %li
-      %h3= candidato.name
-      %p.person-count= "Personen: #{candidato.number_of_persons}"
-      %p.candidato-text= candidato.text
-      = link_to 'Löschen', candidato_path(candidato), :method => :delete, :confirm => 'Sicher?', :class => 'delete-link'
+.text
+  %h3 Anmeldungen
+  %p= "#{Candidato.sum('number_of_persons')} Personen"
+
+  %ul.candidato-list.regalo-list
+    - @candidatos.each do |candidato|
+      %li
+        %h3= candidato.name
+        %p.person-count= "Personen: #{candidato.number_of_persons}"
+        %p.candidato-text= candidato.text
+        .list-links
+          = link_to 'Löschen', candidato_path(candidato), :method => :delete, :confirm => 'Sicher?', :class => 'gift-link'
+        .clearfix

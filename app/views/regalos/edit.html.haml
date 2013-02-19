@@ -1,10 +1,12 @@
-%h2 Schenken:
+.links
+  = link_to 'Zurück', regalos_path
 
-%p= @regalo.name + ' schenken?'
+.text
+  %h4= @regalo.name + ' schenken?'
 
-= form_for @regalo do |f|
-  
-  Namen eintragen:  
-  = f.text_field :donor
+  = form_for @regalo do |f|
+    
+    Namen eintragen:  
+    = f.text_field :donor
 
-  = f.submit 'Schenken!'
+    = f.submit 'Schenken!'
