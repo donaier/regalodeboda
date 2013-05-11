@@ -14,6 +14,7 @@
     - @regalos.each do |regalo|
       %li
         %h3= regalo.name
+        %p= regalo.donor
         .list-links
           = link_to 'Link', regalo.link, :class => 'regalo-link'
           = link_to 'Löschen', regalo_path(regalo), :method => :delete, :confirm => 'Sicher?', :class => 'gift-link'
